@@ -108,7 +108,7 @@ public final class RelayServer {
 
         if (args.length > 0) {
             try {
-                port = Integer.valueOf(args[0]);
+                port = Integer.parseInt(args[0]);
             } catch (NumberFormatException e) {
                 // wrong port format
                 throw new IllegalArgumentException("Unrecognized argument " + args[0]

@@ -80,7 +80,7 @@ public final class Relaying implements NATTraversalTechnique {
     private InetSocketAddress getRelayServerAddressFromBundle() throws Exception {
         final String host = this.bundle.getString("relaying.server.ip"); //$NON-NLS-1$
         final String port = this.bundle.getString("relaying.server.port"); //$NON-NLS-1$
-        return new InetSocketAddress(host, Integer.valueOf(port));
+        return new InetSocketAddress(host, Integer.parseInt(port));
     }
 
     @Override
@@ -215,12 +215,7 @@ public final class Relaying implements NATTraversalTechnique {
         }
         final Relaying other = (Relaying) obj;
         if (this.metaData == null) {
-            if (other.metaData != null) {
-                return false;
-            }
-        } else if (!this.metaData.equals(other.metaData)) {
-            return false;
-        }
-        return true;
+            return other.metaData == null;
+        } else return this.metaData.equals(other.metaData);
     }
 }

@@ -16,8 +16,8 @@
  */
 package de.fhkn.in.uce.plugininterface;
 
+import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
@@ -56,7 +56,7 @@ public final class TestNATBehavior {
 
     @Test
     public void testGetNATFeatures() {
-        Set<NATFeature> expected = new HashSet<NATFeature>();
+        Set<NATFeature> expected = new HashSet<>();
         expected.add(NATFeature.FILTERING);
         expected.add(NATFeature.MAPPING);
 
@@ -91,47 +91,39 @@ public final class TestNATBehavior {
         Future<NATBehavior> result = executor.submit(socketTask);
         NATBehavior nb = result.get();
         executor.shutdownNow();
-        assertTrue(behavior.equals(nb));
+        assertEquals(behavior, nb);
     }
 
     private Callable<NATBehavior> getDecoderTask() throws Exception {
-        return new Callable<NATBehavior>() {
-
-            @Override
-            public NATBehavior call() throws Exception {
-                Socket s = null;
-                try {
-                    ServerSocket ss = new ServerSocket(59590);
-                    s = ss.accept();
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not start decoder task", e);
-                }
-                InputStream in = s.getInputStream();
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                int next = in.read();
-                while (next > -1) {
-                    bos.write(next);
-                    next = in.read();
-                }
-                bos.flush();
-                byte[] asBytes = bos.toByteArray();
-                return NATBehavior.fromBytes(asBytes, null);
+        return () -> {
+            Socket s = null;
+            try {
+                ServerSocket ss = new ServerSocket(59590);
+                s = ss.accept();
+            } catch (Exception e) {
+                throw new RuntimeException("Could not start decoder task", e);
             }
+            InputStream in = s.getInputStream();
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            int next = in.read();
+            while (next > -1) {
+                bos.write(next);
+                next = in.read();
+            }
+            bos.flush();
+            byte[] asBytes = bos.toByteArray();
+            return NATBehavior.fromBytes(asBytes, null);
         };
     }
 
     private Runnable getEncoderTask(final NATBehavior toWrite) throws Exception {
-        return new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    Socket s = new Socket("localhost", 59590);
-                    toWrite.writeTo(s.getOutputStream());
-                    s.close();
-                } catch (Exception e) {
-                    throw new RuntimeException("Could not start encoder task", e);
-                }
+        return () -> {
+            try {
+                Socket s = new Socket("localhost", 59590);
+                toWrite.writeTo(s.getOutputStream());
+                s.close();
+            } catch (Exception e) {
+                throw new RuntimeException("Could not start encoder task", e);
             }
         };
     }

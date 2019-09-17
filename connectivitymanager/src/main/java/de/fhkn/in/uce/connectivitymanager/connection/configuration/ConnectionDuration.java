@@ -17,5 +17,5 @@
 package de.fhkn.in.uce.connectivitymanager.connection.configuration;
 
 public enum ConnectionDuration {
-    SHORT, LONG;
+    SHORT, LONG
 }

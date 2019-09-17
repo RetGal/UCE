@@ -74,8 +74,7 @@ public final class RefreshMessageHandlerTask implements Runnable {
         if (lifetime == 0) {
             this.initRefreshInterval = RelayingConstants.DEFAULT_ALLOCATION_REFRESH_INTERVAL;
         } else {
-            this.initRefreshInterval = (lifetime < RelayingConstants.ALLOCATION_LIFETIME_MAX) ? lifetime
-                    : RelayingConstants.ALLOCATION_LIFETIME_MAX;
+            this.initRefreshInterval = Math.min(lifetime, RelayingConstants.ALLOCATION_LIFETIME_MAX);
         }
     }
 
@@ -104,8 +103,7 @@ public final class RefreshMessageHandlerTask implements Runnable {
                     int lifetime = message.getAttribute(RelayingLifetime.class).getLifeTime();
                     logger.info("Received refresh request with lifetime {}", lifetime);
                     if (lifetime > 0) {
-                        refreshInterval = (lifetime < RelayingConstants.ALLOCATION_LIFETIME_MAX) ? lifetime
-                                : RelayingConstants.ALLOCATION_LIFETIME_MAX;
+                        refreshInterval = Math.min(lifetime, RelayingConstants.ALLOCATION_LIFETIME_MAX);
                         // send refresh response
                         Message successResponse = message.buildSuccessResponse();
                         successResponse.addAttribute(new RelayingLifetime(refreshInterval));

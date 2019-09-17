@@ -49,7 +49,7 @@ public interface MessageHeader {
     /**
      * The magic cookie is a fixed value which is defined by RFC 5389.
      */
-    public static final int MAGIC_COOKIE = 0x2112A442;
+    int MAGIC_COOKIE = 0x2112A442;
 
     /**
      * Returns the class of a message.

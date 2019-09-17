@@ -78,7 +78,6 @@ public class CmdReader extends AbstractReader {
                 }
             } catch (IllegalArgumentException e) {
                 logError("CmdReader: Argument \"" + e.getMessage() + "\" is empty or invalid");
-                continue;
             }
         }
     }

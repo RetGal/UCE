@@ -27,5 +27,5 @@ public interface CancelableTask extends Runnable {
     /**
      * Cancels the current tasks.
      */
-    public void cancel();
+    void cancel();
 }

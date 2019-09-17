@@ -46,7 +46,7 @@ public enum RelayingMethod implements MessageMethod {
      * @param encoded
      *            the encoded method
      */
-    private RelayingMethod(int encoded) {
+    RelayingMethod(int encoded) {
         this.encoded = encoded;
     }
 

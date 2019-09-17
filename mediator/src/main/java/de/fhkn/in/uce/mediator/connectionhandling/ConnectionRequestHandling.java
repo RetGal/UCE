@@ -71,7 +71,7 @@ public final class ConnectionRequestHandling implements HandleMessage {
             this.connectionRequests.removeConnectionRequest(new String(connectionRequestMessage.getHeader()
                     .getTransactionId()));
             logger.debug(
-                    "Connection request with transactionId={} removed from list", String.valueOf(connectionRequestMessage.getHeader().getTransactionId())); //$NON-NLS-1$
+                    "Connection request with transactionId={} removed from list", connectionRequestMessage.getHeader().getTransactionId()); //$NON-NLS-1$
         }
     }
 

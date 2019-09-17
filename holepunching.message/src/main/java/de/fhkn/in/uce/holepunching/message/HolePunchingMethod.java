@@ -46,7 +46,7 @@ public enum HolePunchingMethod implements MessageMethod {
      * @param encoded
      *            the encoded method
      */
-    private HolePunchingMethod(int encoded) {
+    HolePunchingMethod(int encoded) {
         this.encoded = encoded;
     }
 

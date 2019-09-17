@@ -77,7 +77,7 @@ public final class AttributeDecoder {
             throws IOException, MessageFormatException {
         final ByteArrayInputStream bin = new ByteArrayInputStream(attributesBytes);
         final DataInputStream din = new DataInputStream(bin);
-        final List<Attribute> attributes = new Vector<Attribute>();
+        final List<Attribute> attributes = new Vector<>();
         while (bin.available() > 0) {
             final byte[] headerBits = new byte[AttributeHeader.HEADER_LENGTH];
             din.readFully(headerBits);

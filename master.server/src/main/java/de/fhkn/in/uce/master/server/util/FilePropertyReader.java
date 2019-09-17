@@ -86,7 +86,6 @@ public class FilePropertyReader extends AbstractReader {
                     }
                 } catch (IllegalArgumentException e) {
                     logError("FilePropertyReader: Argument \"" + e.getMessage() + "\" is empty or invalid");
-                    continue;
                 }
             }
             fis.close();

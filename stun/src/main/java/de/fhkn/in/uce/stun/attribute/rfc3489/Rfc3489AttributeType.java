@@ -51,7 +51,7 @@ public enum Rfc3489AttributeType implements AttributeType {
         }
     };
 
-    private static final Map<Integer, Rfc3489AttributeType> intToEnum = new HashMap<Integer, Rfc3489AttributeType>();
+    private static final Map<Integer, Rfc3489AttributeType> intToEnum = new HashMap<>();
 
     static {
         for (final Rfc3489AttributeType l : values()) {
@@ -67,7 +67,7 @@ public enum Rfc3489AttributeType implements AttributeType {
      * @param encoded
      *            the byte encoded attribute type
      */
-    private Rfc3489AttributeType(final int encoded) {
+    Rfc3489AttributeType(final int encoded) {
         this.encoded = encoded;
     }
 

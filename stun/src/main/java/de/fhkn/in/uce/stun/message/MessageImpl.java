@@ -75,7 +75,7 @@ final class MessageImpl implements Message {
         this.messageMethod = method;
         this.messageClass = messageClass;
         this.transactionID = transactionID;
-        this.attributes = new Vector<Attribute>();
+        this.attributes = new Vector<>();
     }
 
     @Override
@@ -151,7 +151,7 @@ final class MessageImpl implements Message {
 
     @Override
     public <T extends Attribute> List<T> getAttributes(final Class<T> attributeClass) {
-        final List<T> reAttributes = new Vector<T>();
+        final List<T> reAttributes = new Vector<>();
         for (final Attribute a : this.attributes) {
             if (a.getClass() == attributeClass) {
                 // this is safe because we check for class equality before
@@ -270,12 +270,7 @@ final class MessageImpl implements Message {
             return false;
         }
         if (this.transactionID == null) {
-            if (other.transactionID != null) {
-                return false;
-            }
-        } else if (!this.transactionID.equals(other.transactionID)) {
-            return false;
-        }
-        return true;
+            return other.transactionID == null;
+        } else return this.transactionID.equals(other.transactionID);
     }
 }

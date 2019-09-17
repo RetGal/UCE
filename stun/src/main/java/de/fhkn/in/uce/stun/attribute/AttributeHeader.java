@@ -29,7 +29,7 @@ public interface AttributeHeader {
     /**
      * The length of an attribute header.
      */
-    public static final int HEADER_LENGTH = 4;
+    int HEADER_LENGTH = 4;
 
     /**
      * Returns the type of the attribute.

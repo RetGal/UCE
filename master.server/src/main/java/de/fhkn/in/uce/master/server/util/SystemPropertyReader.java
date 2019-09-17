@@ -87,7 +87,6 @@ public class SystemPropertyReader extends AbstractReader {
                 }
             } catch (IllegalArgumentException e) {
                 logError("Argument \"" + e.getMessage() + "\" is empty or invalid");
-                continue;
             }
         }
     }

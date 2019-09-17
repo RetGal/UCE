@@ -59,7 +59,7 @@ public enum ServiceClass {
 
     private int correspondingTos;
 
-    private ServiceClass(final int corrTos) {
+    ServiceClass(final int corrTos) {
         this.correspondingTos = corrTos;
     }
 

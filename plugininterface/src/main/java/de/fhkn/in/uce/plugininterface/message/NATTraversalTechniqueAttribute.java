@@ -77,13 +77,10 @@ public class NATTraversalTechniqueAttribute implements Attribute {
         }
         if ((this instanceof NATTraversalTechniqueAttribute) && (obj instanceof NATTraversalTechniqueAttribute)) {
             NATTraversalTechniqueAttribute other = (NATTraversalTechniqueAttribute) obj;
-            if (encoded != other.encoded) {
-                return false;
-            }
+            return encoded == other.encoded;
         } else {
             return false;
         }
-        return true;
     }
 
     /**

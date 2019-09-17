@@ -63,8 +63,8 @@ public final class NATTraversalTechniqueUtil {
      *             converted.
      */
     public Set<NATSituation> parseNATSituations(final String resourceName) throws Exception {
-        final Set<NATSituation> result = new HashSet<NATSituation>();
-        final Set<NATSituation> tmp = new HashSet<NATSituation>();
+        final Set<NATSituation> result = new HashSet<>();
+        final Set<NATSituation> tmp = new HashSet<>();
         final InputStream resourceAsStream = this.getResourceAsStream(resourceName);
         final BufferedReader reader = new BufferedReader(new InputStreamReader(resourceAsStream));
         String line = "";
@@ -95,10 +95,10 @@ public final class NATTraversalTechniqueUtil {
 
     public Set<NATSituation> resolveWildcards(final NATSituation withWildcard) {
         // TODO refactor: divide and conquer
-        final Set<NATSituation> result = new HashSet<NATSituation>();
+        final Set<NATSituation> result = new HashSet<>();
         // resolve client
         final NATBehavior clientNat = withWildcard.getClientNATBehavior();
-        final Set<NATBehavior> clientBehaviors = new HashSet<NATBehavior>();
+        final Set<NATBehavior> clientBehaviors = new HashSet<>();
         if (this.hasWildcard(clientNat)) {
             clientBehaviors.addAll(this.resolveWildcardInNatBehavior(clientNat));
         } else {
@@ -106,7 +106,7 @@ public final class NATTraversalTechniqueUtil {
         }
         // resolve server
         final NATBehavior serverNat = withWildcard.getServiceNATBehavior();
-        final Set<NATBehavior> serverBehaviors = new HashSet<NATBehavior>();
+        final Set<NATBehavior> serverBehaviors = new HashSet<>();
         if (this.hasWildcard(serverNat)) {
             serverBehaviors.addAll(this.resolveWildcardInNatBehavior(serverNat));
         } else {
@@ -133,8 +133,8 @@ public final class NATTraversalTechniqueUtil {
 
     private Set<NATBehavior> resolveWildcardInNatBehavior(final NATBehavior nat) {
         // TODO refactor
-        final Set<NATBehavior> firstResult = new HashSet<NATBehavior>();
-        final Set<NATBehavior> result = new HashSet<NATBehavior>();
+        final Set<NATBehavior> firstResult = new HashSet<>();
+        final Set<NATBehavior> result = new HashSet<>();
         if (nat.getFeatureRealization(NATFeature.MAPPING).equals(NATFeatureRealization.DONT_CARE)) {
             for (NATFeatureRealization nonWildcard : this.getNonWildcardFeatureRealizations()) {
                 NATBehavior newNatBehavior = new NATBehavior(nonWildcard,
@@ -159,7 +159,7 @@ public final class NATTraversalTechniqueUtil {
     }
 
     private Set<NATFeatureRealization> getNonWildcardFeatureRealizations() {
-        final Set<NATFeatureRealization> result = new HashSet<NATFeatureRealization>();
+        final Set<NATFeatureRealization> result = new HashSet<>();
         for (NATFeatureRealization value : NATFeatureRealization.values()) {
             if (!value.equals(NATFeatureRealization.DONT_CARE)) {
                 result.add(value);
@@ -175,7 +175,7 @@ public final class NATTraversalTechniqueUtil {
      * @return a Set with all possible {@link NATSituation}s
      */
     public Set<NATSituation> getAllPossibleNATSituations() {
-        final Set<NATSituation> result = new HashSet<NATSituation>();
+        final Set<NATSituation> result = new HashSet<>();
         final Set<NATBehavior> client = this.getAllPossibleNATBehaviors();
         final Set<NATBehavior> server = this.getAllPossibleNATBehaviors();
 
@@ -188,7 +188,7 @@ public final class NATTraversalTechniqueUtil {
     }
 
     private Set<NATBehavior> getAllPossibleNATBehaviors() {
-        final Set<NATBehavior> result = new HashSet<NATBehavior>();
+        final Set<NATBehavior> result = new HashSet<>();
         final Set<NATFeatureRealization> nonWildcards = this.getNonWildcardFeatureRealizations();
         for (NATFeatureRealization a : nonWildcards) {
             for (NATFeatureRealization b : nonWildcards) {

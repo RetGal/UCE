@@ -138,7 +138,7 @@ public enum STUNAttributeType implements AttributeType {
         }
     };
 
-    private static final Map<Integer, STUNAttributeType> intToEnum = new HashMap<Integer, STUNAttributeType>();
+    private static final Map<Integer, STUNAttributeType> intToEnum = new HashMap<>();
 
     static {
         for (final STUNAttributeType l : values()) {
@@ -154,7 +154,7 @@ public enum STUNAttributeType implements AttributeType {
      * @param encoded
      *            the byte encoded attribute type
      */
-    private STUNAttributeType(final int encoded) {
+    STUNAttributeType(final int encoded) {
         this.encoded = encoded;
     }
 

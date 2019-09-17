@@ -121,10 +121,7 @@ public abstract class AbstractReader {
     protected boolean isPort(final String port) {
         String tmp = port.trim();
         int result = Integer.parseInt(tmp);
-        if ((result >= 1024) && (result < 65536)) {
-            return true;
-        }
-        return false;
+        return (result >= 1024) && (result < 65536);
     }
 
     /**

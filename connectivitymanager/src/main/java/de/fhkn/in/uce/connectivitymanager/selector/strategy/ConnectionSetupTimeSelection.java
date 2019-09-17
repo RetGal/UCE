@@ -164,12 +164,7 @@ public final class ConnectionSetupTimeSelection implements NATTraversalSelection
             return false;
         }
         if (registry == null) {
-            if (other.registry != null) {
-                return false;
-            }
-        } else if (!registry.equals(other.registry)) {
-            return false;
-        }
-        return true;
+            return other.registry == null;
+        } else return registry.equals(other.registry);
     }
 }

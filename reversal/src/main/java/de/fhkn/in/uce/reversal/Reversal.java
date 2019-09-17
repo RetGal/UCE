@@ -139,12 +139,7 @@ public final class Reversal implements NATTraversalTechnique {
         }
         final Reversal other = (Reversal) obj;
         if (this.metaData == null) {
-            if (other.metaData != null) {
-                return false;
-            }
-        } else if (!this.metaData.equals(other.metaData)) {
-            return false;
-        }
-        return true;
+            return other.metaData == null;
+        } else return this.metaData.equals(other.metaData);
     }
 }

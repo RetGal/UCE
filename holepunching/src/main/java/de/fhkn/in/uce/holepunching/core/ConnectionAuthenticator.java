@@ -43,6 +43,6 @@ public interface ConnectionAuthenticator {
      * @throws IOException
      *             if an I/O error occurs while authentication
      */
-    public boolean authenticate(Socket toBeAuthenticated, Set<CancelableTask> relatedHolePunchingTasks,
-            CancelableTask ownTask, Object sharedLock) throws IOException;
+    boolean authenticate(Socket toBeAuthenticated, Set<CancelableTask> relatedHolePunchingTasks,
+                         CancelableTask ownTask, Object sharedLock) throws IOException;
 }

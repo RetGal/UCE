@@ -57,7 +57,7 @@ public enum RelayingAttributeType implements AttributeType {
      * @param encoded
      *            the encoded attribute type
      */
-    private RelayingAttributeType(int encoded) {
+    RelayingAttributeType(int encoded) {
         this.encoded = encoded;
     }
 

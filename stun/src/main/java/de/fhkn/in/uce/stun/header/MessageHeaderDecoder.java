@@ -55,7 +55,7 @@ public final class MessageHeaderDecoder {
      * Creates a new {@link MessageHeaderDecoder}.
      */
     public MessageHeaderDecoder() {
-        this(new ArrayList<MessageMethodDecoder>());
+        this(new ArrayList<>());
     }
 
     /**
@@ -290,10 +290,7 @@ public final class MessageHeaderDecoder {
             } else if (!this.method.equals(other.method)) {
                 return false;
             }
-            if (!Arrays.equals(this.transactionId, other.transactionId)) {
-                return false;
-            }
-            return true;
+            return Arrays.equals(this.transactionId, other.transactionId);
         }
     }
 }

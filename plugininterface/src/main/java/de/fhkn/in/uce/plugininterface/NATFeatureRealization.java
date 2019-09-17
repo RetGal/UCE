@@ -68,7 +68,7 @@ public enum NATFeatureRealization {
      */
     DONT_CARE(0x7);
 
-    private static final Map<Integer, NATFeatureRealization> intToEnum = new ConcurrentHashMap<Integer, NATFeatureRealization>();
+    private static final Map<Integer, NATFeatureRealization> intToEnum = new ConcurrentHashMap<>();
 
     static {
         for (NATFeatureRealization l : values()) {
@@ -78,7 +78,7 @@ public enum NATFeatureRealization {
 
     private final int encoded;
 
-    private NATFeatureRealization(int encoded) {
+    NATFeatureRealization(int encoded) {
         this.encoded = encoded;
     }
 

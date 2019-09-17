@@ -64,7 +64,7 @@ public final class NATBehavior implements Attribute {
      *            the {@link NATFeatureRealization} of the filtering
      */
     public NATBehavior(final NATFeatureRealization mapping, final NATFeatureRealization filtering) {
-        final Map<NATFeature, NATFeatureRealization> modifiableMap = new HashMap<NATFeature, NATFeatureRealization>();
+        final Map<NATFeature, NATFeatureRealization> modifiableMap = new HashMap<>();
 
         modifiableMap.put(NATFeature.MAPPING, mapping);
         modifiableMap.put(NATFeature.FILTERING, filtering);
@@ -111,12 +111,9 @@ public final class NATBehavior implements Attribute {
             return false;
         }
         final NATBehavior other = (NATBehavior) obj;
-        if (this.getFeatureRealization(NATFeature.MAPPING).equals(other.getFeatureRealization(NATFeature.MAPPING))
+        return this.getFeatureRealization(NATFeature.MAPPING).equals(other.getFeatureRealization(NATFeature.MAPPING))
                 && this.getFeatureRealization(NATFeature.FILTERING).equals(
-                        other.getFeatureRealization(NATFeature.FILTERING))) {
-            return true;
-        }
-        return false;
+                other.getFeatureRealization(NATFeature.FILTERING));
     }
 
     @Override

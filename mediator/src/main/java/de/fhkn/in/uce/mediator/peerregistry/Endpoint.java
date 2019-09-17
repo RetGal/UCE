@@ -89,12 +89,7 @@ public final class Endpoint {
             return false;
         }
         if (endpointAddress == null) {
-            if (other.endpointAddress != null) {
-                return false;
-            }
-        } else if (!endpointAddress.equals(other.endpointAddress)) {
-            return false;
-        }
-        return true;
+            return other.endpointAddress == null;
+        } else return endpointAddress.equals(other.endpointAddress);
     }
 }

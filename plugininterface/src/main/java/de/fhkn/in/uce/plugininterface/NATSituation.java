@@ -124,11 +124,8 @@ public final class NATSituation {
         final NATFeatureRealization otherServiceFiltering = other.getServiceNATBehavior().getFeatureRealization(
                 NATFeature.FILTERING);
 
-        if (thisClientMapping.equals(otherClientMapping) && thisClientFiltering.equals(otherClientFiltering)
-                && thisServiceMapping.equals(otherServiceMapping) && thisServiceFiltering.equals(otherServiceFiltering)) {
-            return true;
-        }
-        return false;
+        return thisClientMapping.equals(otherClientMapping) && thisClientFiltering.equals(otherClientFiltering)
+                && thisServiceMapping.equals(otherServiceMapping) && thisServiceFiltering.equals(otherServiceFiltering);
     }
 
     @Override

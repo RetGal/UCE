@@ -67,7 +67,7 @@ public class ThreadedExceptionRunner extends BlockJUnit4ClassRunner {
                 } finally {
                     eachNotifier.fireTestFinished();
                 }
-            };
+            }
         };
         t.start();
         try {

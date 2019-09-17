@@ -57,9 +57,9 @@ public final class MessageReader {
      */
     public static MessageReader createMessageReaderWithCustomMethodDecoder(
             final MessageMethodDecoder customMethodDecoder) {
-        final List<MessageMethodDecoder> decoders = new ArrayList<MessageMethodDecoder>();
+        final List<MessageMethodDecoder> decoders = new ArrayList<>();
         decoders.add(customMethodDecoder);
-        return new MessageReader(decoders, new ArrayList<AttributeTypeDecoder>());
+        return new MessageReader(decoders, new ArrayList<>());
     }
 
     /**
@@ -73,7 +73,7 @@ public final class MessageReader {
      */
     public static MessageReader createMessageReaderWithCustomMethodDecoderList(
             final List<MessageMethodDecoder> customMethodDecoderList) {
-        return new MessageReader(customMethodDecoderList, new ArrayList<AttributeTypeDecoder>());
+        return new MessageReader(customMethodDecoderList, new ArrayList<>());
     }
 
     /**
@@ -86,9 +86,9 @@ public final class MessageReader {
      */
     public static MessageReader createMessageReaderWithCustomAttributeTypeDecoder(
             final AttributeTypeDecoder customAttributeTypeDecoder) {
-        final List<AttributeTypeDecoder> decoders = new ArrayList<AttributeTypeDecoder>();
+        final List<AttributeTypeDecoder> decoders = new ArrayList<>();
         decoders.add(customAttributeTypeDecoder);
-        return new MessageReader(new ArrayList<MessageMethodDecoder>(), decoders);
+        return new MessageReader(new ArrayList<>(), decoders);
     }
 
     /**
@@ -102,7 +102,7 @@ public final class MessageReader {
      */
     public static MessageReader createMessageReaderWithCustomAttributeTypeDecoderList(
             final List<AttributeTypeDecoder> customAttributeTypeDecoderList) {
-        return new MessageReader(new ArrayList<MessageMethodDecoder>(), customAttributeTypeDecoderList);
+        return new MessageReader(new ArrayList<>(), customAttributeTypeDecoderList);
     }
 
     /**
@@ -127,7 +127,7 @@ public final class MessageReader {
      * @return the {@link MessageReader}
      */
     public static MessageReader createMessageReader() {
-        return new MessageReader(new ArrayList<MessageMethodDecoder>(), new ArrayList<AttributeTypeDecoder>());
+        return new MessageReader(new ArrayList<>(), new ArrayList<>());
     }
 
     /**

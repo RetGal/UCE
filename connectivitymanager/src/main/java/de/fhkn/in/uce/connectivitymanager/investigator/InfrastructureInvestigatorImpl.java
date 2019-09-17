@@ -59,7 +59,7 @@ public final class InfrastructureInvestigatorImpl implements InfrastructreInvest
 
     private InetSocketAddress getPrimaryStunServerAddress() {
         final String stunServerIp = this.bundle.getString(PROPERTY_NAME_PRIMARY_IP);
-        final int stunServerPort = Integer.valueOf(this.bundle.getString(PROPERTY_NAME_PRIMARY_PORT));
+        final int stunServerPort = Integer.parseInt(this.bundle.getString(PROPERTY_NAME_PRIMARY_PORT));
         return new InetSocketAddress(stunServerIp, stunServerPort);
     }
 }

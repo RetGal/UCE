@@ -52,7 +52,6 @@ public final class PrinterTask implements Runnable {
             }
         } catch (final Exception e) {
             System.err.println(e.getMessage());
-            return;
         }
     }
 }

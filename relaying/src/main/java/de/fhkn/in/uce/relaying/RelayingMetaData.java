@@ -123,12 +123,7 @@ public final class RelayingMetaData implements NATTraversalTechniqueMetaData {
             return false;
         }
         if (version == null) {
-            if (other.version != null) {
-                return false;
-            }
-        } else if (!version.equals(other.version)) {
-            return false;
-        }
-        return true;
+            return other.version == null;
+        } else return version.equals(other.version);
     }
 }

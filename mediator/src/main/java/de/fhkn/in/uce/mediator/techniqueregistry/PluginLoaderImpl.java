@@ -63,7 +63,7 @@ final class PluginLoaderImpl implements PluginLoader {
         	throw new RuntimeException("No message handler plugins found.");
         }
         while (iterator.hasNext()) {
-            HandleMessage handleMessage = (HandleMessage) iterator.next();
+            HandleMessage handleMessage = iterator.next();
             logger.debug("Found plugin for handling connection requests for encoding {}", handleMessage //$NON-NLS-1$
                     .getAttributeForTraversalTechnique().getEncoded());
         }

@@ -33,7 +33,7 @@ public enum STUNMessageMethod implements MessageMethod {
 
     private final int encoded;
 
-    private STUNMessageMethod(final int encoded) {
+    STUNMessageMethod(final int encoded) {
         this.encoded = encoded;
     }
 
@@ -42,7 +42,7 @@ public enum STUNMessageMethod implements MessageMethod {
         return this.encoded;
     }
 
-    private static final Map<Integer, STUNMessageMethod> intToEnum = new HashMap<Integer, STUNMessageMethod>();
+    private static final Map<Integer, STUNMessageMethod> intToEnum = new HashMap<>();
 
     static {
         for (final STUNMessageMethod l : values()) {

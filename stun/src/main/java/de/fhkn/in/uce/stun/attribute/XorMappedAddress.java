@@ -254,9 +254,6 @@ public final class XorMappedAddress implements Attribute {
         if (ipFamily != other.ipFamily) {
             return false;
         }
-        if (length != other.length) {
-            return false;
-        }
-        return true;
+        return length == other.length;
     }
 }

@@ -156,13 +156,13 @@ public final class MediatorConnection {
 
     private InetSocketAddress getMediatorAddress() {
         final String mediatorIP = this.bundle.getString(PROPERTY_NAME_MEDIATOR + SEPARATOR + PROPERTY_NAME_IP);
-        final int mediatorPort = Integer.valueOf(this.bundle.getString(PROPERTY_NAME_MEDIATOR + SEPARATOR
+        final int mediatorPort = Integer.parseInt(this.bundle.getString(PROPERTY_NAME_MEDIATOR + SEPARATOR
                 + PROPERTY_NAME_PORT));
         return new InetSocketAddress(mediatorIP, mediatorPort);
     }
 
     private int getKeepAliveInSeconds() {
-        return Integer.valueOf(this.bundle.getString(PROPERTY_NAME_MEDIATOR + SEPARATOR + PROPERTY_NAME_KEEP_ALIVE));
+        return Integer.parseInt(this.bundle.getString(PROPERTY_NAME_MEDIATOR + SEPARATOR + PROPERTY_NAME_KEEP_ALIVE));
     }
 
     /**

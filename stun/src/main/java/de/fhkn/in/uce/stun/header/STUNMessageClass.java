@@ -37,7 +37,7 @@ public enum STUNMessageClass implements MessageClass {
 
     private final int encoded;
 
-    private STUNMessageClass(final int encoded) {
+    STUNMessageClass(final int encoded) {
         this.encoded = encoded;
     }
 
@@ -46,7 +46,7 @@ public enum STUNMessageClass implements MessageClass {
         return this.encoded;
     }
 
-    private static final Map<Integer, STUNMessageClass> intToEnum = new HashMap<Integer, STUNMessageClass>();
+    private static final Map<Integer, STUNMessageClass> intToEnum = new HashMap<>();
 
     static {
         for (final STUNMessageClass l : values()) {

@@ -58,7 +58,7 @@ public enum NATSTUNAttributeType implements AttributeType {
 
     };
 
-    private static final Map<Integer, NATSTUNAttributeType> intToEnum = new HashMap<Integer, NATSTUNAttributeType>();
+    private static final Map<Integer, NATSTUNAttributeType> intToEnum = new HashMap<>();
 
     static {
         for (NATSTUNAttributeType l : values()) {
@@ -74,7 +74,7 @@ public enum NATSTUNAttributeType implements AttributeType {
      * @param encoded
      *            the byte encoded uce attribute type
      */
-    private NATSTUNAttributeType(int encoded) {
+    NATSTUNAttributeType(int encoded) {
         this.encoded = encoded;
     }
 

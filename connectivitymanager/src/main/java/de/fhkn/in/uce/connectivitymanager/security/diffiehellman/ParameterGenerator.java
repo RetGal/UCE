@@ -30,7 +30,7 @@ public interface ParameterGenerator {
      * The name of the Diffie-Hellman algorithm.
      */
     //    public static final String DIFFIE_HELLMAN_ALGORITHM_NAME = "DIFFIEHELLMAN"; //$NON-NLS-1$
-    public static final String DIFFIE_HELLMAN_ALGORITHM_NAME = "DH"; //$NON-NLS-1$
+    String DIFFIE_HELLMAN_ALGORITHM_NAME = "DH"; //$NON-NLS-1$
 
     /**
      * Method to generate parameters for the Diffie-Hellman Key Exchange.

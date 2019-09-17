@@ -16,9 +16,10 @@
  */
 package de.fhkn.in.uce.plugininterface;
 
-import static org.junit.Assert.assertFalse;
-
+import org.junit.Assert;
 import org.junit.Test;
+
+import static junit.framework.Assert.assertFalse;
 
 public final class TestNATSituation {
 

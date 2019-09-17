@@ -223,7 +223,7 @@ public final class ErrorCode implements Attribute {
 
         INSUFFICIENT_CAPACITY(600);
 
-        private static final Map<Integer, STUNErrorCode> intToEnum = new HashMap<Integer, STUNErrorCode>();
+        private static final Map<Integer, STUNErrorCode> intToEnum = new HashMap<>();
 
         static {
             for (final STUNErrorCode l : values()) {
@@ -233,7 +233,7 @@ public final class ErrorCode implements Attribute {
 
         private final int errorCode;
 
-        private STUNErrorCode(final int errorCode) {
+        STUNErrorCode(final int errorCode) {
             this.errorCode = errorCode;
         }
 

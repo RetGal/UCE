@@ -39,8 +39,8 @@ public final class TestNATTraversalTechniqueUtil {
     @Before
     public void setUp() {
         this.util = NATTraversalTechniqueUtil.getInstance();
-        this.expectedResult = new HashSet<NATSituation>();
-        this.actualResult = new HashSet<NATSituation>();
+        this.expectedResult = new HashSet<>();
+        this.actualResult = new HashSet<>();
     }
 
     @Test

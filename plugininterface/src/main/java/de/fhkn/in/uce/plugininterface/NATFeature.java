@@ -38,7 +38,7 @@ public enum NATFeature {
      */
     FILTERING(0x2);
 
-    private static final Map<Integer, NATFeature> intToEnum = new ConcurrentHashMap<Integer, NATFeature>();
+    private static final Map<Integer, NATFeature> intToEnum = new ConcurrentHashMap<>();
 
     static {
         for (NATFeature l : values()) {
@@ -48,7 +48,7 @@ public enum NATFeature {
 
     private final int encoded;
 
-    private NATFeature(int encoded) {
+    NATFeature(int encoded) {
         this.encoded = encoded;
     }
 

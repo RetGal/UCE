@@ -16,16 +16,14 @@
  */
 package de.fhkn.in.uce.plugininterface.message;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public final class TestNATTraversalTechniqueAttribute {
     private static final int ATTRIBUTE_LENGTH = 4;
@@ -64,7 +62,7 @@ public final class TestNATTraversalTechniqueAttribute {
     public void testWriteTo() throws IOException {
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         this.attr.writeTo(baos);
-        assertTrue(Arrays.equals(this.getEncodedAsBytes(), baos.toByteArray()));
+        assertArrayEquals(this.getEncodedAsBytes(), baos.toByteArray());
     }
 
     private byte[] getEncodedAsBytes() throws IOException {

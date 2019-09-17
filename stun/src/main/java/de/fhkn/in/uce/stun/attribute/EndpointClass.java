@@ -111,7 +111,7 @@ public final class EndpointClass implements Attribute {
      * @author Daniel Maier
      *
      */
-    public static enum EndpointCategory {
+    public enum EndpointCategory {
         /**
          * Type of endpoint is undefined.
          */
@@ -134,7 +134,7 @@ public final class EndpointClass implements Attribute {
          */
         CONNECTION_REVERSAL(0x4);
 
-        private static final Map<Integer, EndpointCategory> intToEnum = new HashMap<Integer, EndpointCategory>();
+        private static final Map<Integer, EndpointCategory> intToEnum = new HashMap<>();
 
         static {
             for (final EndpointCategory l : values()) {
@@ -150,7 +150,7 @@ public final class EndpointClass implements Attribute {
          * @param encoded
          *            the encoded representation of the endpoint.
          */
-        private EndpointCategory(final int encoded) {
+        EndpointCategory(final int encoded) {
             this.encoded = encoded;
         }
 
